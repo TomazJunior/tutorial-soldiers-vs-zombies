@@ -37,10 +37,14 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/Enemies/Enemy.cs" />
+     <Compile Include="Assets/Scripts/Util/EndOfLineDetector.cs" />
+     <Compile Include="Assets/Scripts/Managers/LevelManager.cs" />
      <Compile Include="Assets/Scripts/Enemies/EnemyStats.cs" />
      <Compile Include="Assets/Scripts/Enemies/EnemySpawner.cs" />
-     <Compile Include="Assets/Scripts/Managers/LevelManager.cs" />
-     <Compile Include="Assets/Scripts/Util/EndOfLineDetector.cs" />
+     <Compile Include="Assets/Scripts/Util/DragAndDropAlly.cs" />
+     <Compile Include="Assets/Scripts/Allies/AllySlot.cs" />
+     <Compile Include="Assets/Scripts/Allies/Ally.cs" />
+     <Compile Include="Assets/Scripts/Allies/AllyStats.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.22f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
