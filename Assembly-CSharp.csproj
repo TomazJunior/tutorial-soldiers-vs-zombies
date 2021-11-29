@@ -45,6 +45,11 @@
      <Compile Include="Assets/Scripts/Allies/AllySlot.cs" />
      <Compile Include="Assets/Scripts/Allies/Ally.cs" />
      <Compile Include="Assets/Scripts/Allies/AllyStats.cs" />
+     <Compile Include="Assets/Scripts/Projectile.cs" />
+     <Compile Include="Assets/Scripts/CharacterAttack.cs" />
+     <Compile Include="Assets/Scripts/Allies/ShooterAlly.cs" />
+     <Compile Include="Assets/Scripts/ITakeDamage.cs" />
+     <Compile Include="Assets/Scripts/LifeManager.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.22f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

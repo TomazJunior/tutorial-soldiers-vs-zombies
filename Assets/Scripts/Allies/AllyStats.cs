@@ -8,4 +8,6 @@ public class AllyStats : ScriptableObject
 {
     public Sprite sprite;
     public Ally allyPrefab;
+    public float power = 1;
+    public float fullLife = 3;
 }

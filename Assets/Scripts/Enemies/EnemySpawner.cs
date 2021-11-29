@@ -13,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
         var enemyStats = GetRandomEnemyStats();
         enemy.speed = enemyStats.speed;
         enemy.Sprite = enemyStats.sprite;
+        enemy.DistanceToAttack = enemyStats.distanceToAttack;
+        enemy.Power = enemyStats.power;
+        enemy.lifeManager.FullLife = enemyStats.fullLife;
     }
 
     private EnemyStats GetRandomEnemyStats()
