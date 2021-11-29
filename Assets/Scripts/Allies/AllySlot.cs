@@ -11,9 +11,16 @@ public class AllySlot : MonoBehaviour
         return ally != null;
     }
 
-    internal void SetAlly(AllyStats allyStats) {
+    internal void SetAlly(AllyStats allyStats)
+    {
         this.ally = Instantiate<Ally>(allyStats.allyPrefab, transform.position, Quaternion.identity);
         this.ally.transform.SetParent(this.transform);
-        this.ally.Sprite = allyStats.sprite;        
+        this.ally.Sprite = allyStats.sprite;
+        this.ally.lifeManager.FullLife = allyStats.fullLife;
+
+        if (this.ally is ShooterAlly)
+        {
+            ((ShooterAlly)this.ally).Power = allyStats.power;
+        }
     }
 }

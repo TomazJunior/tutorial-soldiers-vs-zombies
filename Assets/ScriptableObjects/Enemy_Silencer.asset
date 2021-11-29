@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 11
   sprite: {fileID: 21300000, guid: b42367c0e39be493a8eab7204f0a19ab, type: 3}
+  distanceToAttack: 1

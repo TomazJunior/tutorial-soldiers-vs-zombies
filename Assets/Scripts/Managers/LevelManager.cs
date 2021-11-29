@@ -66,15 +66,16 @@ public class LevelManager : MonoBehaviour
     internal void EnemyReachedEndLine(Enemy enemy)
     {
         RemoveEnemy(enemy);
+    }
+
+    internal void RemoveEnemy(Enemy enemy)
+    {
+        Destroy(enemy.gameObject);
+        TotalOfEnemies--;
+
         if (TotalOfEnemies <= 0)
         {
             StartLevel();
         }
-    }
-
-    private void RemoveEnemy(Enemy enemy)
-    {
-        Destroy(enemy.gameObject);
-        TotalOfEnemies--;
     }
 }

@@ -7,4 +7,7 @@ public class EnemyStats : ScriptableObject
 {
     public float speed;
     public Sprite sprite;
+    public float distanceToAttack;
+    public float power = 1;
+    public float fullLife = 3;
 }

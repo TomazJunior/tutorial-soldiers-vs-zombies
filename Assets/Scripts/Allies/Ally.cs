@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ally : MonoBehaviour
+public class Ally : MonoBehaviour, ITakeDamage
 {
+    internal LifeManager lifeManager;
     private Sprite sprite;
     public Sprite Sprite
     {
@@ -15,14 +17,22 @@ public class Ally : MonoBehaviour
         }
     }
 
-    void Start()
+    protected virtual void Awake()
     {
-
+        lifeManager = GetComponent<LifeManager>();
+        lifeManager.OnLifeChanged += HandleLifeChenged;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HandleLifeChenged(object sender, float life)
     {
+        if (life == 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
+    public void TakeDamage()
+    {
+        lifeManager.Life--;
     }
 }
