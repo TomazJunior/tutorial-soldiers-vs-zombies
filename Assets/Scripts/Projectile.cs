@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     {
         if (collider2D.CompareTag(collisionTag))
         {
-            collider2D.GetComponent<ITakeDamage>().TakeDamage();
+            collider2D.GetComponent<TakeDamageManager>().TakeDamage();
             Destroy(this.gameObject);
         }
     }

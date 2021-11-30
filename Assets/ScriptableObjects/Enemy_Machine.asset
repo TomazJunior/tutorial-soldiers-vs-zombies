@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e494c6c51cd024ed4a2aab129d94bc2b, type: 3}
   m_Name: Enemy_Machine
   m_EditorClassIdentifier: 
-  speed: 9
+  speed: 4
   sprite: {fileID: 21300000, guid: 301d2a4602238454f8e995f66268d38e, type: 3}
   distanceToAttack: 3
+  power: 1
+  fullLife: 3

@@ -6212,7 +6212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f22acdfba294f01949c689e3a1ecff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: 0200000001000000
+  waves: 010000000200000003000000
   enemySpawners:
   - {fileID: 1847175525}
   - {fileID: 709338409}
