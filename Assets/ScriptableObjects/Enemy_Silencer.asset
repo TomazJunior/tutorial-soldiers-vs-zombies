@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e494c6c51cd024ed4a2aab129d94bc2b, type: 3}
   m_Name: Enemy_Silencer
   m_EditorClassIdentifier: 
-  speed: 11
+  speed: 6
   sprite: {fileID: 21300000, guid: b42367c0e39be493a8eab7204f0a19ab, type: 3}
   distanceToAttack: 1
+  power: 1
+  fullLife: 3

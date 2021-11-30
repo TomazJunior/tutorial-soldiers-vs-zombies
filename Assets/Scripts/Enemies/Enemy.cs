@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, ITakeDamage
+public class Enemy : MonoBehaviour
 {
     [SerializeField] LayerMask allyLayer;
     [SerializeField] float fereRateInSeconds = 1;
@@ -12,10 +12,11 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     const int SPEED_FACTOR = 10;
     internal float speed;
+    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rig;
 
     private System.DateTime lastTimeAttack;
-
+    
     private Sprite sprite;
     public Sprite Sprite
     {
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         set
         {
             sprite = value;
-            GetComponent<SpriteRenderer>().sprite = sprite;
+            spriteRenderer.sprite = sprite;
         }
     }
 
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rig = GetComponent<Rigidbody2D>();
         lifeManager = GetComponent<LifeManager>();
         lifeManager.OnLifeChanged += HandleLifeChanged;
@@ -39,14 +41,10 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private void HandleLifeChanged(object sender, float life)
     {
-        if (life == 0) {
+        if (life == 0)
+        {
             LevelManager.instance.RemoveEnemy(this);
         }
-    }
-
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
@@ -56,7 +54,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         if (raycastHit2D.collider != null)
         {
             rig.velocity = Vector2.zero;
-            Attack();            
+            Attack();
         }
         else
         {
@@ -69,7 +67,6 @@ public class Enemy : MonoBehaviour, ITakeDamage
         System.TimeSpan timeSpan = System.DateTime.UtcNow - lastTimeAttack;
         if (timeSpan.TotalSeconds >= fereRateInSeconds)
         {
-            Debug.Log("Attack");
             lastTimeAttack = System.DateTime.UtcNow;
             characterAttack.Attack(Power, "Ally");
         }
@@ -78,10 +75,5 @@ public class Enemy : MonoBehaviour, ITakeDamage
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(-DistanceToAttack, 0));
-    }
-
-    public void TakeDamage()
-    {
-        lifeManager.Life--;
     }
 }
