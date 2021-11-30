@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ally : MonoBehaviour, ITakeDamage
+public class Ally : MonoBehaviour
 {
     internal LifeManager lifeManager;
+    private SpriteRenderer spriteRenderer;
     private Sprite sprite;
     public Sprite Sprite
     {
@@ -13,12 +14,13 @@ public class Ally : MonoBehaviour, ITakeDamage
         set
         {
             sprite = value;
-            GetComponent<SpriteRenderer>().sprite = sprite;
+            spriteRenderer.sprite = sprite;
         }
     }
 
     protected virtual void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         lifeManager = GetComponent<LifeManager>();
         lifeManager.OnLifeChanged += HandleLifeChenged;
     }
@@ -29,10 +31,5 @@ public class Ally : MonoBehaviour, ITakeDamage
         {
             Destroy(this.gameObject);
         }
-    }
-
-    public void TakeDamage()
-    {
-        lifeManager.Life--;
     }
 }
