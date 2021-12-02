@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
         enemy.DistanceToAttack = enemyStats.distanceToAttack;
         enemy.Power = enemyStats.power;
         enemy.lifeManager.FullLife = enemyStats.fullLife;
+        enemy.Coins = enemyStats.coins;
     }
 
     private EnemyStats GetRandomEnemyStats()

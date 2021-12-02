@@ -10,4 +10,5 @@ public class EnemyStats : ScriptableObject
     public float distanceToAttack;
     public float power = 1;
     public float fullLife = 3;
+    public int coins = 1;
 }

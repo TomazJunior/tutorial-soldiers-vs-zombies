@@ -10,4 +10,5 @@ public class AllyStats : ScriptableObject
     public Ally allyPrefab;
     public float power = 1;
     public float fullLife = 3;
+    public int coins = 1;
 }

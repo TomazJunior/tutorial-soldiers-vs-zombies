@@ -17,10 +17,13 @@ public class AllySlot : MonoBehaviour
         this.ally.transform.SetParent(this.transform);
         this.ally.Sprite = allyStats.sprite;
         this.ally.lifeManager.FullLife = allyStats.fullLife;
+        this.ally.Coins = allyStats.coins;
 
         if (this.ally is ShooterAlly)
         {
             ((ShooterAlly)this.ally).Power = allyStats.power;
         }
+
+        LevelManager.instance.AddAlly(this.ally);
     }
 }

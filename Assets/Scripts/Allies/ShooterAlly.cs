@@ -23,7 +23,6 @@ public class ShooterAlly : Ally
         System.TimeSpan timeSpan = System.DateTime.UtcNow - lastTimeAttack;
         if (timeSpan.TotalSeconds >= fereRateInSeconds)
         {
-            Debug.Log("Attack");
             lastTimeAttack = System.DateTime.UtcNow;
             characterAttack.Attack(Power, "Enemy");
         }

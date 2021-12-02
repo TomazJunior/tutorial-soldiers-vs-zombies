@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    internal event System.EventHandler<int> OnCoinsChanged;
     public static LevelManager instance = null;
     [SerializeField] List<int> waves = new List<int>();
     [SerializeField] List<EnemySpawner> enemySpawners = new List<EnemySpawner>();
     [SerializeField] Vector2 rangeTimeBetweenEnemies = new Vector2(1, 2);
+    [SerializeField] int initialCoins = 5;
     private bool isGameOver = false;
     private int totalOfEnemies;
     public int TotalOfEnemies
@@ -19,6 +21,25 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private int coins;
+    public int Coins
+    {
+        get { return coins; }
+        set
+        {
+            coins = value;
+            OnCoinsChanged?.Invoke(this, coins);
+        }
+    }
+
+    internal void AddAlly(Ally ally)
+    {
+        if (!isGameOver)
+        {
+            Coins -= ally.Coins;
+        }
+    }
+
     private int round = 0;
     void Awake()
     {
@@ -27,6 +48,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        Coins = initialCoins;
         StartLevel();
     }
     void StartLevel()
@@ -65,14 +87,18 @@ public class LevelManager : MonoBehaviour
 
     internal void EnemyReachedEndLine(Enemy enemy)
     {
-        RemoveEnemy(enemy);
+        RemoveEnemy(enemy, true);
     }
 
-    internal void RemoveEnemy(Enemy enemy)
+    internal void RemoveEnemy(Enemy enemy, bool enemyReachedEndLine = false)
     {
         Destroy(enemy.gameObject);
         TotalOfEnemies--;
 
+        if (!enemyReachedEndLine && !isGameOver)
+        {
+            Coins += enemy.Coins;
+        }
         if (TotalOfEnemies <= 0)
         {
             StartLevel();
