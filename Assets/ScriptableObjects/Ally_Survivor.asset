@@ -15,4 +15,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 3403e1e1568ab427cb0e56e4530bceed, type: 3}
   allyPrefab: {fileID: 2521549473566310666, guid: e245d46fe4d1441a498970852e7948ff, type: 3}
   power: 1
-  fullLife: 3
+  fullLife: 10
+  coins: 5

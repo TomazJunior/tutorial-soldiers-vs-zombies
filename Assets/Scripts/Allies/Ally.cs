@@ -18,6 +18,7 @@ public class Ally : MonoBehaviour
         }
     }
 
+    public int Coins { get; set; }
     protected virtual void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();

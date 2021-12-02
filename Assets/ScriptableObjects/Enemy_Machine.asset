@@ -17,3 +17,4 @@ MonoBehaviour:
   distanceToAttack: 3
   power: 1
   fullLife: 3
+  coins: 2

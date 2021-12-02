@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
 
     public float DistanceToAttack { get; set; }
     public float Power { get; set; }
+    public int Coins { get; set; }
 
     void Awake()
     {
