@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rig;
 
     private System.DateTime lastTimeAttack;
-    
+
     private Sprite sprite;
     public Sprite Sprite
     {
@@ -38,6 +38,17 @@ public class Enemy : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         lifeManager = GetComponent<LifeManager>();
         lifeManager.OnLifeChanged += HandleLifeChanged;
+        LevelManager.instance.OnGameOver += HandleOnGameOver;
+    }
+
+    void OnDestroy()
+    {
+        lifeManager.OnLifeChanged -= HandleLifeChanged;
+        LevelManager.instance.OnGameOver -= HandleOnGameOver;
+    }
+    private void HandleOnGameOver(object sender, EventArgs e)
+    {
+        Destroy(this.gameObject);
     }
 
     private void HandleLifeChanged(object sender, float life)
