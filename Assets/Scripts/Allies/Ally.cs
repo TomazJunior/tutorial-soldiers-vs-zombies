@@ -24,6 +24,17 @@ public class Ally : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         lifeManager = GetComponent<LifeManager>();
         lifeManager.OnLifeChanged += HandleLifeChenged;
+        LevelManager.instance.OnGameOver += HandleGameOver;
+    }
+
+    void OnDestroy()
+    {
+        lifeManager.OnLifeChanged -= HandleLifeChenged;
+        LevelManager.instance.OnGameOver -= HandleGameOver;
+    }
+    private void HandleGameOver(object sender, EventArgs e)
+    {
+        Destroy(this.gameObject);
     }
 
     private void HandleLifeChenged(object sender, float life)
